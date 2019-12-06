@@ -1,1 +1,5 @@
-export const apiRoot = 'https://localhost:8080/api';
+
+const { NODE_ENV, REACT_APP_PROD_API, REACT_APP_DEV_API, REACT_APP_PROD_PORT, REACT_APP_DEV_PORT } = process.env;
+export const apiRoot = NODE_ENV === 'production'
+  ? `${REACT_APP_PROD_API}:${REACT_APP_PROD_PORT}`
+  : `${REACT_APP_DEV_API}:${REACT_APP_DEV_PORT}`;
